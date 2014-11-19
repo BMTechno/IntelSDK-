@@ -49,7 +49,7 @@ function stopFunction(){
 /////////////////////////////////////////////////////////////
 function onDeviceReady() {
     console.log("deviceready");
-<<<<<<< HEAD
+
     try {
         if (navigator.geolocation !== null) {
             console.log("navigator.geolocation !== null");
@@ -59,10 +59,8 @@ function onDeviceReady() {
     } catch (e) {
         console(e.message); // une erreur est survenu
     }
-    sendData("test de push Data");
-=======
     
->>>>>>> origin/master
+    sendData("test de push Data");
     try {
         //hide splash screen
         navigator.splashscreen.hide(); 
