@@ -48,9 +48,9 @@ function startFunction(){
     try {
         if (navigator.geolocation !== null && watchID == null) {
             console.log("stratGeoLoc");
-            var options = { timeout: 1000, maximumAge: 10000, enableHighAccuracy: true };
-            watchID = navigator.geolocation.watchPosition(sucessGeo, failGeo, options);
-        }
+            var options = { timeout: 10000, maximumAge: 3000, enableHighAccuracy: true };
+            watchID = navigator.geolocation.watchPosition(sucessGeo, failGeo, options);   
+    }
     } catch (e) {
         console(e.message); // Une erreur est survenu
     }
@@ -64,7 +64,7 @@ function stopFunction(){
          console.log("L'enregistrement est terminee"); // L'enregistrement est terminee
 }
 
-/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 function onDeviceReady() {
     console.log("deviceready");    
     //sendData("test de push Data");
