@@ -1,14 +1,20 @@
 
 
 function sucessGeo(position, f, op){
-    console.log('Latitude: '          + position.coords.latitude          + '\n' +
+    var p = document.getElementById("logs");
+    p.textContent = "output : ";
+    
+    var log = 'Latitude: ' + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
           'Altitude: '          + position.coords.altitude          + '\n' +
           'Accuracy: '          + position.coords.accuracy          + '\n' +
           'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
           'Heading: '           + position.coords.heading           + '\n' +
           'Speed: '             + position.coords.speed             + '\n' +
-          'Timestamp: '         + position.timestamp                + '\n');
+          'Timestamp: '         + position.timestamp                + '\n';
+    
+    p.textContent += log;
+    console.log(log);
 
 }
 
@@ -17,24 +23,33 @@ function failGeo(e){
     console.log(e);
 }
 
-function startFunction(){
-    alert("startFunction")
-}
+/*________________________________________________________________________________________________*/
+var watchID = null;
 
+function startFunction(){
+try {
+        if (navigator.geolocation !== null && watchID == null) {
+            console.log("stratGeoLoc");
+            var options = { timeout: 100, maximumAge: 5000, enableHighAccuracy: true };
+            watchID = navigator.geolocation.watchPosition(sucessGeo, failGeo, options);
+        }
+    } catch (e) {
+        console(e.message); // Une erreur est survenu
+    }
+}
+/*________________________________________________________________________________________________*/ 
+
+function stopFunction(){
+         alert("stopFunction");
+         navigator.geolocation.clearWatch(watchID);
+         watchID = null;
+         console.log("L'enregistrement est terminee"); // L'enregistrement est terminee
+}
 
 /////////////////////////////////////////////////////////////
 function onDeviceReady() {
     console.log("deviceready");
-    try {
-        if (navigator.geolocation !== null) {
-            console.log("navigator.geolocation !== null");
-            var options = { timeout: 100, maximumAge: 11000, enableHighAccuracy: true };
-            navigator.geolocation.watchPosition(sucessGeo, failGeo, options);
-        }
-    } catch (e) {
-        console(e.message); // une erreur est survenu
-    }
-
+    
     try {
         //hide splash screen
         navigator.splashscreen.hide(); 
