@@ -27,7 +27,7 @@ function failGeo(e){
 }
 /*________________________________________________________________________________________________*/
 function switchFunction(){
-    alert("click");
+    console.log("click");
     var bt = $("#monboutton");
     if(bt.attr("data-state") == "start"){
         startFunction();
@@ -58,20 +58,30 @@ function startFunction(){
 /*________________________________________________________________________________________________*/ 
 
 function stopFunction(){
-         alert("stopFunction");
+         console.log("stopFunction");
          navigator.geolocation.clearWatch(watchID);
          watchID = null;
          console.log("L'enregistrement est terminee"); // L'enregistrement est terminee
 }
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+function build3DPrint(){
+     /// Build 3D cube with geometry object // need Three.js
+    geometry = new THREE.BoxGeometry( 100, 100, 100 );
+    var link = document.createElement("a");
+    link.textContent = "Download your Printable object File";
+    saveSTL(geometry, link);
+    document.body.appendChild(link);   
+}
+
+
 function onDeviceReady() {
     console.log("deviceready");    
-    //sendData("test de push Data");
     try {
         //hide splash screen
-        navigator.splashscreen.hide(); 
+        navigator.splashscreen.hide();
     } catch (e) {}
+    ///
+    build3DPrint();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
