@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://edge-intel.s3.amazonaws.com/jsapp/production/release-2014-ww45/sample-geolocation/sample.zip",
       "projectGuid": "abeea08c-7278-4f78-b703-4088b1643272",
-      "lastModifiedDate": 1416388412989,
+      "lastModifiedDate": 1416405060207,
       "creationDate": 1416388412850
     },
     "sourceDirectory": "www",
@@ -68,7 +68,26 @@
         "appName_": "GeoLoc",
         "appID_": "xdk.sample.geolocationdemo",
         "appAccess_": "*",
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "images/logo/logo36-01.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "images/logo/logo48-01.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "images/logo/logo72-01.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          }
+        ],
         "splashes_": [],
         "iosProvs_": [],
         "addlPermissions_": "",
