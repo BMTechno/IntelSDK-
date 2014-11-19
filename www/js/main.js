@@ -22,12 +22,27 @@ function failGeo(e){
     // erreur de GeoLoc
     console.log(e);
 }
-
+/*________________________________________________________________________________________________*/
+function switchFunction(){
+    alert("click");
+    var bt = $("#monboutton");
+    if(bt.attr("data-state") == "start"){
+        startFunction();
+        bt.attr("data-state", "stop");
+        bt.removeClass("btn-success");
+        bt.addClass("btn-danger");
+    }else{
+        stopFunction();
+        bt.attr("data-state", "start");
+        bt.removeClass("btn-danger");
+        bt.addClass("btn-success");
+    }
+}
 /*________________________________________________________________________________________________*/
 var watchID = null;
 
 function startFunction(){
-try {
+    try {
         if (navigator.geolocation !== null && watchID == null) {
             console.log("stratGeoLoc");
             var options = { timeout: 100, maximumAge: 5000, enableHighAccuracy: true };
@@ -48,19 +63,8 @@ function stopFunction(){
 
 /////////////////////////////////////////////////////////////
 function onDeviceReady() {
-    console.log("deviceready");
-
-    try {
-        if (navigator.geolocation !== null) {
-            console.log("navigator.geolocation !== null");
-            var options = { timeout: 100, maximumAge: 11000, enableHighAccuracy: true };
-            navigator.geolocation.watchPosition(sucessGeo, failGeo, options);
-        }
-    } catch (e) {
-        console(e.message); // une erreur est survenu
-    }
-    
-    sendData("test de push Data");
+    console.log("deviceready");    
+    //sendData("test de push Data");
     try {
         //hide splash screen
         navigator.splashscreen.hide(); 

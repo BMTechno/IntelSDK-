@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "https://edge-intel.s3.amazonaws.com/jsapp/production/release-2014-ww45/sample-geolocation/sample.zip",
       "projectGuid": "abeea08c-7278-4f78-b703-4088b1643272",
-      "lastModifiedDate": 1416405060207,
+      "lastModifiedDate": 1416408868668,
       "creationDate": 1416388412850
     },
     "sourceDirectory": "www",
@@ -86,9 +86,44 @@
             "density": "hdpi",
             "height": 72,
             "width": 72
+          },
+          {
+            "relPath": "images/logo/logo92-01.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
           }
         ],
-        "splashes_": [],
+        "splashes_": [
+          {
+            "relPath": "images/splashscreen/splash1-01.png",
+            "density": "ldpi",
+            "height": 426,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/splashscreen/splash2-01.png",
+            "density": "mdpi",
+            "height": 470,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/splashscreen/splash3-01.png",
+            "density": "hdpi",
+            "height": 640,
+            "width": 480,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "images/splashscreen/splash4-01.png",
+            "density": "xhdpi",
+            "height": 960,
+            "width": 720,
+            "orientation": "portrait"
+          }
+        ],
         "iosProvs_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",

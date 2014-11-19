@@ -10,7 +10,8 @@
 <script src='cordova.js'></script> 
 <script src='xhr.js'></script>
 
-<!-- Les styles graphique CSS -->     
+<!-- Les styles graphique CSS --> 
+<link src="css/bootstrap.min.css" type="text/css" />
 <style type="text/css">
 * { 
     -webkit-user-select:none; 
@@ -27,13 +28,13 @@
 </style>
 </head>
     
-<body>
-
-    <button onclick="startFunction()">Strat</button>
-    <button onclick="stopFunction()">Stop</button>
+<body>  
+    <button id="monboutton" type="button" onclick="switchFunction()" data-state="start" class="btn btn-success btn-lg">Démarrer</button>
     <p id="logs" >mes logs</p>
     
     <!-- Import notre code javascript -->
+    <script type="text/javascript" src='js/jquery-2.1.1.min.js'></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
     <script type="text/javascript" src='js/data.js'></script>
     <script type="text/javascript" src="js/main.js"></script> 
     
