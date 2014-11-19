@@ -34,7 +34,7 @@ function onDeviceReady() {
     } catch (e) {
         console(e.message); // une erreur est survenu
     }
-
+    sendData("test de push Data");
     try {
         //hide splash screen
         navigator.splashscreen.hide(); 
