@@ -1,21 +1,24 @@
 
+var rawData = new Array();
 
-function sucessGeo(position, f, op){
+function sucessGeo(position){
     var p = document.getElementById("logs");
     p.textContent = "output : ";
     
     var log = 'Latitude: ' + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
           'Altitude: '          + position.coords.altitude          + '\n' +
-          'Accuracy: '          + position.coords.accuracy          + '\n' +
-          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-          'Heading: '           + position.coords.heading           + '\n' +
+          /* 'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' + 
+          'Heading: '           + position.coords.heading           + '\n' + */
           'Speed: '             + position.coords.speed             + '\n' +
           'Timestamp: '         + position.timestamp                + '\n';
     
     p.textContent += log;
-    console.log(log);
+    
 
+    rawData.push(position);
+    console.log(JSON.stringify(rawData));
 }
 
 function failGeo(e){
@@ -45,7 +48,7 @@ function startFunction(){
     try {
         if (navigator.geolocation !== null && watchID == null) {
             console.log("stratGeoLoc");
-            var options = { timeout: 100, maximumAge: 5000, enableHighAccuracy: true };
+            var options = { timeout: 1000, maximumAge: 10000, enableHighAccuracy: true };
             watchID = navigator.geolocation.watchPosition(sucessGeo, failGeo, options);
         }
     } catch (e) {
