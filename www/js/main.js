@@ -67,6 +67,7 @@ function stopFunction(){
 function build3DPrint(){
      /// Build 3D cube with geometry object // need Three.js
     geometry = new THREE.BoxGeometry( 100, 100, 100 );
+    //geometry.
     var link = document.createElement("a");
     link.textContent = "Download your Printable object File";
     saveSTL(geometry, link);
@@ -82,6 +83,11 @@ function onDeviceReady() {
     } catch (e) {}
     ///
     build3DPrint();
+    //
+    init();
+    animate();
+    //
+    buildObject();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
